@@ -1,0 +1,133 @@
+<!-- index.html -->
+<!--h2: use bigger text-size; -->
+<h2 id="top_tagline" class="typewriter">BOUNDLESS OPPOURTUNITIES</h2>
+
+<!-- index.html -->
+<!-- border-radius; rounded corners -->
+<div class="marquee" style="height:110px; border-radius: 15px 15px 0px 0px;">
+    <!-- src = link to image on filesystem; scale = scaling up or down the image by percentage -->
+    <img src="assets/pics/teachytech.png" style="transform: scale(1.7) translateY(4px);">
+    <img src="assets/pics/techschool.png" style="transform: scale(1.5) translateY(-6px);">
+</div>
+
+<!-- about_us.html -->
+<!-- flexbox-container: Depends on exact page, in profiles.html it calls a CSS class to align the element in a single column-->
+<div class="flexbox-container">
+    <!-- background-color: change box background color; -->
+    <!-- flexbox-column: Depends on exact page, in profiles.html it calls a CSS class applies thick padding between edge of box to content itself -->
+    <div style="background-color: lavenderblush; " class="flexbox-column Bord">
+        <div class="flexbox-content">
+            <!-- title: apply tooltip if you hover on image; float: position on edge of container, in this case the left edge -->
+            <img style="float:left; margin-right: 32px;" src="assets/pics/CherryBlossom.jpg" title="Picture of cherry blossom tree, from Unsplash">
+            <div style="float:right">
+        </div>
+    </div>
+</div>
+
+<!-- about_us.html -->
+<!-- Bord: calls CSS class to apply dropshadow, padding and positioning (defined in styles.css)  -->
+<div style="background-color: cornsilk" class="flexbox-column Bord">
+
+<div class="flexbox-content">
+         <!-- width: Specify width, in this case 90% of the page size  -->
+        <div style="float:left; width:90%">
+            <!-- h1: make font-size bigger than h2  -->
+            <h1>Our Mission</h1>
+            <p style="margin-right: 16px;">Our mission here at Hot Beans Web is to make websites more accessible to people who have disabilities. We understand that around 63&#37 of the total population on our planet has some sort of disability that is restricting them to use everyday websites we take for granted for example Techytech. We have partnered with them and their engineers to make sure that our future is more accessible to everyone. As we believe making a world more accessible to everyone is the Golden King. </p>
+            </div>
+            <img style="float:right;" src="assets/pics/disabled.jpg" title="A picture of a disabled woman using a computer, from https://media.gettyimages.com">
+        </div>
+    </div>
+</div>
+
+<!-- profiles.html -->
+<div class="flexbox-column Bord">
+    <div class="flexbox-content">
+        <!-- padding-*: changes shape of blobby image, discovered accidentally when trying to make the image circular  -->
+        <!-- margin-*:  accounts for extra blobby size mainting equal padding from side of page and text  -->
+        <img style="margin-left:-8px; margin-top: -8px; padding-top: 32px; margin-right: 32px; padding-left: 0px;" src="assets/pics/people9.png">
+        <div>
+        <h1>Trainee Dev, Trixie Baker</h1>
+        <p>Trixie was born in the United States where she attended  Alabama State University. But unfortunately, in her 3rd year attending school she had to drop out. As the cost of the University was too much to handle. So, she decided to move to the UK where she met David. She asked him if she could work with him as she had no job. David kindly gave her a position as a Trainee Developer here at Hot Beans Web. Where she has really enjoyed collaborating with others on the team in designing websites for different clients. </p>
+        </div>
+    </div>
+</div>
+
+<!-- job_search.html -->
+<!-- Clicky: calls css class to higlight yellow on mouse hover  -->
+<!-- onclick: Performs action on element click, in this case calls subroutine to set cookies to be used by upload_cv.html and then navigates there  -->
+<article class="Bord JobL Clicky" onclick="FindMore('${Title}', '${JobId}'); window.location.href='upload_cv.html'" style=" margin-top: 0px; width:100%;">
+    <!--<p class="jid_c" style="color:grey">Job Id:${Math.random().toString(16).slice(2)}<span class="jid">-->
+    <h1 style="margin-top: 0px">${Title}</h1>
+        <fieldset>
+            <legend>Info</legend>
+            <!-- ${Sal}: Includes random salary value -->
+            <!-- .toLocaleString(): Formats number to apporpiate formate, in the anglosphere it adds a comma between 100's, eg. 100,000-->
+            <p>Annual Salary: $<span class="sal">${Sal.toLocaleString()}</span></p>
+            <p hidden><span hidden>${Sal}</span></p>
+            <p>Commitment: <span class="time">${Time}</span></p>
+            <p>Location: <span class="locy">${Locy}</span></p>
+            <p>Department: <span class="catty">${Catty}</span></p>
+            <p class="jid_c">Job Id: ${JobId}<span class="jid">
+        </fieldset>    <p>${TemplateString}</p>
+    <a href="upload_cv.html" onclick="FindMore('${Title}', '${JobId}')"> Submit and application >>></a>
+    <!-- span: makes bold -->
+    <!-- Math.floor(Math.random() *x)); Math.random() produces any random number (including decimals), *x limits it to an upper bound, Math.floor rounds it down -->
+    <!-- color: grey: make text grey -->
+    <p class="days_c" style="color:grey; margin-bottom: 0px">Job posted <strong>(<span class="days">${Math.floor(Math.random()*31)}</span>)</strong> days ago...</p>
+</article>
+
+<!-- job_search.html -->
+<!-- Templates used within job_search.html random article generator -->
+const Locations = ["Anahiem, LA, United States", 
+                   "Auckland, New Zeland", 
+                   "London, East Anglia, United Kingdom"]
+
+const Department = ["Q/A",
+                    "Marketing",
+                    "Frontend",
+                    "Backend",
+                    "Management"]
+
+const Titles = ["Head of Department", 
+                "Compliance Officer", 
+                "Junior XX Position", 
+                "Senior XX Position",
+                "Product Lead"]
+
+const Templates = ["Join us in a EE1, EE2, and EE3 environment, you'll become a indespensible member of our XX1 staff and we will expect GG1 years of experience as well as a williness to be EE4. " +
+           "Your will work with latest and gratest of EE5 BZ1 and EE6 BZ2, to help bring a EE7 and EE8 future to our company",
+           "At Hot Beans Web we believe we are EE1, EE2 and EE3 and we wish you to be so to. Our position in XX1 is perfect if you are EE4 and EE5. Your experience is important at Hot Beans Web "+
+           "and we ask that you at least GG1 years of experience, we hope we will find you at Hot Beans Web in the future",
+           "At Hot Beans Web our core values are to be EE1, EE2 and EE3, to achieve that goal we only wish to bring on the the most EE4 and EE5 with at least GG1 years of expreience. " +
+           "We will to striving into BZ1 and BZ2, and we hope you will help deliver us there."]
+const EAdjective = ["Innovative",
+            "Exicting",
+            "Dynamic",
+            "Evolving",
+            "Professional",
+            "Sustainable",
+            "Competitive",
+            "Profitable"]
+const Buzzwords = ["IOT",
+            "AI",
+            "Cloud Infrastructure",
+            "Sustainable Technolgy",
+            "Distributed Computing",
+            "Spatial Computing"]
+
+<!-- classs="fancy_form": class the fancy_form class (defined in style.css) to adjust border sizes, border color and text size -->
+<!-- br: breaks line -->
+<label class="fancy_form" for="fname">First Name <span style="color: red">*</span>: </label><br>
+<input class="fancy_form" id="fname" name="fname" type="text" required>
+
+<!-- loads javascript file bg_change.js, which changes the background image randomly on page load -->
+<!-- defer: wait until all elements have loaded before loading this script -->
+<script src="bg_changer.js" defer></script>
+
+<!-- &#9733: unicode star icon -->
+<!-- href: sepcifies link location -->
+<h1><a href="https://www.udemy.com/course/the-complete-javascript-course/">The Complete JavaScript Course 2024: From Zero to Expert!</a></h1>
+<p class="AHHH">The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!</p>
+<p class="extra" style="float:left; margin:0px"><span style="color:gold">&#9733&#9733&#9733&#9733&#9733 </span>(4.7/5)&nbsp
+<a href="https://www.udemy.com/course/the-complete-javascript-course/#reviews">(205,547) Reviews</a>&nbsp906,723 students</p>
