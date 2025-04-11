@@ -1,0 +1,5 @@
+**/*.html linguist-language=html
+**/*.html linguist-vendored=false
+**/*.html linguist-generated=false
+**/*.html linguist-documentation=false
+**/*.htm linguist-detectable=true
